@@ -1,0 +1,106 @@
+---
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+# *Project*
+### Arir Allana
+### 17.05.2021
+# *Analysis of the Retail E-commerce Market in Pakistan*
+## Research Question: What are the market trends of online retail in Pakistan?
+
+## Introduction
+In the past few years, e-commerce has seen a rise in Pakistan thanks to the growing number of mobile users and greater internet access. With new and reliable local retailers such as daraz.pk, symbios.pk etc the public confidence in using e-commerce platforms has increased and so has the demand for online goods and services.
+## Problem Statement
+This study will summarize various fields such as best-selling category, visualize aspects like payment method and order status frequency, find correlations between multiple variables of interest and apply inferential statistical methodologies
+
+##Importance of Research
+E-commerce is of high importance to developing nations such as Pakistan which are looking to maximize their growth and make a shift towards a digital economy. Various local e-commerce startups can provide employment to a young workforce and have the potential to contribute to exports as they expand.  
+
+
+## Data Description and Visulaization
+The type of variables are both continuous and categorical. The variables include item_id, status, created_at, sku, price, qty_ordered, grand_total, increment_id, category_name_1, sales_commission_code, discount_amount, payment_method, Working Date, BI Status,  MV, Year, Month, Customer Since, M-Y, FY and Customer ID.
+
+## Exploratory Data Analysis
+Importing dataset
+```{r}
+Results <- read.csv("C:/Users/arir.allana/Desktop/CS/Stats II/Pakistan Largest Ecommerce Dataset.csv")
+```
+Removing NA values
+#exclude blank records
+```{r}
+na_vec<-which(!complete.cases(Results))
+complete<-Results[-na_vec,]
+```
+
+Visualizing Categories
+```{r}
+#table of categories
+table(complete$category_name_1)
+#bar chart for categories
+cat <- table(complete$category_name_1)
+barplot(cat, main="Categories",xlab="Category",ylab="number",las=2, cex.names=.4, cex.lab=0.7)
+```
+
+Visualizing payment method
+```{r}
+#table of payment method
+pm <- table(complete$payment_method)
+#bar chart of payment method
+barplot(pm, main="payment method", xlab="method", ylab="number",las=2, cex.names=.5, cex.lab=0.7)
+```
+
+Visualizing order status
+
+```{r}
+#table of order status
+st <- table(complete$status)
+#bar chart of payment method
+barplot(st, main="order status", xlab="status", ylab="number",las=2, cex.names=.5, cex.lab=0.7)
+```
+
+Summarizing price
+```{r}
+#summary of price
+pr <- as.numeric(complete$price)
+summary(pr)
+```
+
+Summarizing qty ordered
+```{r}
+#summary of qty ordered
+qt <- as.numeric(complete$qty_ordered)
+summary(qt)
+```
+
+Summarizing discount
+```{r}
+#summary of discount
+ds <- as.numeric(complete$discount_amount)
+summary(ds)
+```
+
+Visualizing orders freq by year
+```{r}
+#histogram of orders freq by year
+orders_by_year <- (complete$Year)
+hist(orders_by_year)
+
+```
+Summary by year
+```{r}
+#summary of 2016
+library(dplyr)
+yr_2016<-complete%>%filter(complete$Year==2016)
+summary(yr_2016[, c("status", "price", "qty_ordered", "grand_total", "category_name_1", "discount_amount", "payment_method")])
+
+#summary of 2017
+yr_2017<-complete%>%filter(complete$Year==2017)
+summary(yr_2017[, c("status", "price", "qty_ordered", "grand_total", "category_name_1", "discount_amount", "payment_method")])
+
+#summary of 2018
+yr_2018<-complete%>%filter(complete$Year==2018)
+summary(yr_2018[, c("status", "price", "qty_ordered", "grand_total", "category_name_1", "discount_amount", "payment_method")])
+
+```
