@@ -1,0 +1,397 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{project}{%
+\section{\texorpdfstring{\emph{Project}}{Project}}\label{project}}
+
+\hypertarget{arir-allana}{%
+\subsubsection{Arir Allana}\label{arir-allana}}
+
+\hypertarget{section}{%
+\subsubsection{17.05.2021}\label{section}}
+
+\hypertarget{analysis-of-the-retail-e-commerce-market-in-pakistan}{%
+\section{\texorpdfstring{\emph{Analysis of the Retail E-commerce Market
+in
+Pakistan}}{Analysis of the Retail E-commerce Market in Pakistan}}\label{analysis-of-the-retail-e-commerce-market-in-pakistan}}
+
+\hypertarget{research-question-what-are-the-market-trends-of-online-retail-in-pakistan}{%
+\subsection{Research Question: What are the market trends of online
+retail in
+Pakistan?}\label{research-question-what-are-the-market-trends-of-online-retail-in-pakistan}}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+In the past few years, e-commerce has seen a rise in Pakistan thanks to
+the growing number of mobile users and greater internet access. With new
+and reliable local retailers such as daraz.pk, symbios.pk etc the public
+confidence in using e-commerce platforms has increased and so has the
+demand for online goods and services. \#\# Problem Statement This study
+will summarize various fields such as best-selling category, visualize
+aspects like payment method and order status frequency, find
+correlations between multiple variables of interest and apply
+inferential statistical methodologies
+
+\#\#Importance of Research E-commerce is of high importance to
+developing nations such as Pakistan which are looking to maximize their
+growth and make a shift towards a digital economy. Various local
+e-commerce startups can provide employment to a young workforce and have
+the potential to contribute to exports as they expand.
+
+\hypertarget{data-description-and-visulaization}{%
+\subsection{Data Description and
+Visulaization}\label{data-description-and-visulaization}}
+
+The type of variables are both continuous and categorical. The variables
+include item\_id, status, created\_at, sku, price, qty\_ordered,
+grand\_total, increment\_id, category\_name\_1, sales\_commission\_code,
+discount\_amount, payment\_method, Working Date, BI Status, MV, Year,
+Month, Customer Since, M-Y, FY and Customer ID.
+
+\hypertarget{exploratory-data-analysis}{%
+\subsection{Exploratory Data Analysis}\label{exploratory-data-analysis}}
+
+Importing dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Results <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/arir.allana/Desktop/CS/Stats II/Pakistan Largest Ecommerce Dataset.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Removing NA values \#exclude blank records
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{na_vec<-}\KeywordTok{which}\NormalTok{(}\OperatorTok{!}\KeywordTok{complete.cases}\NormalTok{(Results))}
+\NormalTok{complete<-Results[}\OperatorTok{-}\NormalTok{na_vec,]}
+\end{Highlighting}
+\end{Shaded}
+
+Visualizing Categories
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#table of categories}
+\KeywordTok{table}\NormalTok{(complete}\OperatorTok{$}\NormalTok{category_name_}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##                            Appliances  Beauty & Grooming              Books 
+##               8014              52413              41494               1870 
+##          Computing      Entertainment    Health & Sports      Home & Living 
+##              15933              26326              17502              26504 
+##        Kids & Baby      Men's Fashion  Mobiles & Tablets             Others 
+##              16493              92216             115710              29212 
+## School & Education            Soghaat         Superstore    Women's Fashion 
+##               3478              34011              43613              59720
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#bar chart for categories}
+\NormalTok{cat <-}\StringTok{ }\KeywordTok{table}\NormalTok{(complete}\OperatorTok{$}\NormalTok{category_name_}\DecValTok{1}\NormalTok{)}
+\KeywordTok{barplot}\NormalTok{(cat, }\DataTypeTok{main=}\StringTok{"Categories"}\NormalTok{,}\DataTypeTok{xlab=}\StringTok{"Category"}\NormalTok{,}\DataTypeTok{ylab=}\StringTok{"number"}\NormalTok{,}\DataTypeTok{las=}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex.names=}\NormalTok{.}\DecValTok{4}\NormalTok{, }\DataTypeTok{cex.lab=}\FloatTok{0.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+Visualizing payment method
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#table of payment method}
+\NormalTok{pm <-}\StringTok{ }\KeywordTok{table}\NormalTok{(complete}\OperatorTok{$}\NormalTok{payment_method)}
+\CommentTok{#bar chart of payment method}
+\KeywordTok{barplot}\NormalTok{(pm, }\DataTypeTok{main=}\StringTok{"payment method"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"method"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"number"}\NormalTok{,}\DataTypeTok{las=}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex.names=}\NormalTok{.}\DecValTok{5}\NormalTok{, }\DataTypeTok{cex.lab=}\FloatTok{0.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+Visualizing order status
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#table of order status}
+\NormalTok{st <-}\StringTok{ }\KeywordTok{table}\NormalTok{(complete}\OperatorTok{$}\NormalTok{status)}
+\CommentTok{#bar chart of payment method}
+\KeywordTok{barplot}\NormalTok{(st, }\DataTypeTok{main=}\StringTok{"order status"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"status"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"number"}\NormalTok{,}\DataTypeTok{las=}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex.names=}\NormalTok{.}\DecValTok{5}\NormalTok{, }\DataTypeTok{cex.lab=}\FloatTok{0.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+Summarizing price
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of price}
+\NormalTok{pr <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(complete}\OperatorTok{$}\NormalTok{price)}
+\KeywordTok{summary}\NormalTok{(pr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0     360     899    6349    4070 1012626
+\end{verbatim}
+
+Summarizing qty ordered
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of qty ordered}
+\NormalTok{qt <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(complete}\OperatorTok{$}\NormalTok{qty_ordered)}
+\KeywordTok{summary}\NormalTok{(qt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##    1.000    1.000    1.000    1.296    1.000 1000.000
+\end{verbatim}
+
+Summarizing discount
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of discount}
+\NormalTok{ds <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(complete}\OperatorTok{$}\NormalTok{discount_amount)}
+\KeywordTok{summary}\NormalTok{(ds)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -599.5     0.0     0.0   499.5   160.5 90300.0
+\end{verbatim}
+
+Visualizing orders freq by year
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#histogram of orders freq by year}
+\NormalTok{orders_by_year <-}\StringTok{ }\NormalTok{(complete}\OperatorTok{$}\NormalTok{Year)}
+\KeywordTok{hist}\NormalTok{(orders_by_year)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-9-1.pdf}
+Summary by year
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of 2016}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 3.6.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{yr_}\DecValTok{2016}\NormalTok{<-complete}\OperatorTok{%>%}\KeywordTok{filter}\NormalTok{(complete}\OperatorTok{$}\NormalTok{Year}\OperatorTok{==}\DecValTok{2016}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(yr_}\DecValTok{2016}\NormalTok{[, }\KeywordTok{c}\NormalTok{(}\StringTok{"status"}\NormalTok{, }\StringTok{"price"}\NormalTok{, }\StringTok{"qty_ordered"}\NormalTok{, }\StringTok{"grand_total"}\NormalTok{, }\StringTok{"category_name_1"}\NormalTok{, }\StringTok{"discount_amount"}\NormalTok{, }\StringTok{"payment_method"}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             status          price         qty_ordered       grand_total     
+##  complete      :74610   Min.   :     0   Min.   :  1.000   Min.   :      0  
+##  canceled      :39264   1st Qu.:   299   1st Qu.:  1.000   1st Qu.:    352  
+##  order_refunded:14053   Median :   649   Median :  1.000   Median :    825  
+##  received      : 2885   Mean   :  3906   Mean   :  1.109   Mean   :   4821  
+##  refund        : 2868   3rd Qu.:  1500   3rd Qu.:  1.000   3rd Qu.:   2767  
+##  closed        :  212   Max.   :330499   Max.   :200.000   Max.   :1280473  
+##  (Other)       :   17                                                       
+##           category_name_1  discount_amount          payment_method 
+##  Men's Fashion    :25408   Min.   :    0.0   cod           :76741  
+##  Mobiles & Tablets:22289   1st Qu.:    0.0   Payaxis       :27068  
+##  Soghaat          :16254   Median :    0.0   jazzwallet    :16986  
+##  Beauty & Grooming:13900   Mean   :  263.6   jazzvoucher   : 8255  
+##  Appliances       : 9701   3rd Qu.:   34.9   customercredit: 1562  
+##  Women's Fashion  : 9627   Max.   :90300.0   ublcreditcard :  882  
+##  (Other)          :36730                     (Other)       : 2415
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of 2017}
+\NormalTok{yr_}\DecValTok{2017}\NormalTok{<-complete}\OperatorTok{%>%}\KeywordTok{filter}\NormalTok{(complete}\OperatorTok{$}\NormalTok{Year}\OperatorTok{==}\DecValTok{2017}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(yr_}\DecValTok{2017}\NormalTok{[, }\KeywordTok{c}\NormalTok{(}\StringTok{"status"}\NormalTok{, }\StringTok{"price"}\NormalTok{, }\StringTok{"qty_ordered"}\NormalTok{, }\StringTok{"grand_total"}\NormalTok{, }\StringTok{"category_name_1"}\NormalTok{, }\StringTok{"discount_amount"}\NormalTok{, }\StringTok{"payment_method"}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             status           price         qty_ordered        grand_total      
+##  complete      :123485   Min.   :     0   Min.   :   1.000   Min.   :   -1594  
+##  canceled      : 94981   1st Qu.:   355   1st Qu.:   1.000   1st Qu.:    1080  
+##  received      : 34119   Median :   900   Median :   1.000   Median :    2040  
+##  order_refunded: 32541   Mean   :  5856   Mean   :   1.246   Mean   :    7725  
+##  refund        :  3370   3rd Qu.:  3935   3rd Qu.:   1.000   3rd Qu.:    6700  
+##  cod           :  1621   Max.   :515975   Max.   :1000.000   Max.   :17888000  
+##  (Other)       :   799                                                         
+##           category_name_1  discount_amount           payment_method  
+##  Mobiles & Tablets:59720   Min.   : -599.5   cod            :139983  
+##  Men's Fashion    :49495   1st Qu.:    0.0   Easypay        : 52659  
+##  Women's Fashion  :35204   Median :    0.0   Payaxis        : 48936  
+##  Appliances       :27135   Mean   :  468.1   easypay_voucher: 22679  
+##  Superstore       :27011   3rd Qu.:  157.2   jazzwallet     : 13160  
+##  Beauty & Grooming:18443   Max.   :48205.0   Easypay_MA     :  7964  
+##  (Other)          :73908                     (Other)        :  5535
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#summary of 2018}
+\NormalTok{yr_}\DecValTok{2018}\NormalTok{<-complete}\OperatorTok{%>%}\KeywordTok{filter}\NormalTok{(complete}\OperatorTok{$}\NormalTok{Year}\OperatorTok{==}\DecValTok{2018}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(yr_}\DecValTok{2018}\NormalTok{[, }\KeywordTok{c}\NormalTok{(}\StringTok{"status"}\NormalTok{, }\StringTok{"price"}\NormalTok{, }\StringTok{"qty_ordered"}\NormalTok{, }\StringTok{"grand_total"}\NormalTok{, }\StringTok{"category_name_1"}\NormalTok{, }\StringTok{"discount_amount"}\NormalTok{, }\StringTok{"payment_method"}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             status          price          qty_ordered       grand_total     
+##  canceled      :66999   Min.   :      0   Min.   :  1.000   Min.   :  -1312  
+##  received      :40285   1st Qu.:    500   1st Qu.:  1.000   1st Qu.:   1188  
+##  complete      :35586   Median :   1150   Median :  1.000   Median :   3282  
+##  order_refunded:12930   Mean   :   9296   Mean   :  1.545   Mean   :  13110  
+##  refund        : 1812   3rd Qu.:   9150   3rd Qu.:  1.000   3rd Qu.:  12698  
+##  cod           : 1238   Max.   :1012626   Max.   :500.000   Max.   :1028751  
+##  (Other)       :  834                                                        
+##           category_name_1  discount_amount           payment_method 
+##  Mobiles & Tablets:33701   Min.   :    0.0   cod            :55227  
+##  Others           :24008   1st Qu.:    0.0   Easypay        :30237  
+##  Men's Fashion    :17313   Median :    0.0   bankalfalah    :23059  
+##  Appliances       :15577   Mean   :  754.6   Payaxis        :21636  
+##  Women's Fashion  :14889   3rd Qu.:  600.0   easypay_voucher: 8497  
+##  Superstore       : 9978   Max.   :50355.2   Easypay_MA     : 6063  
+##  (Other)          :44218                     (Other)        :14965
+\end{verbatim}
+
+\end{document}
